@@ -12,16 +12,6 @@
     "disk": "20",
     "swap": "2",
     "url": "https://typesense.org/docs/guide/install-typesense.html"
-  },
-
-  "services":[
-    {
-      "name": "onlyoffice-server",
-      "port": "9002",
-      "description_cn": "浏览器访问 ONLYOFFICE",
-      "description_en": "Web-GUI database management tool",
-      "required": "Y"
-    }
-  ]
+  }
 
 }
