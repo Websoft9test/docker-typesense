@@ -10,8 +10,8 @@ services:
     ports:
       - "${APP_PORT}:8108"
     environment:
-      - api-key=${APP_NAME}
-      - data-dir=${APP_DATA_PATH}
+      - TYPESENSE_API_KEY=${APP_NAME}
+      - TYPESENSE_DATA_DIR=${APP_DATA_PATH}
     volumes:
       - typesense:/data
 
