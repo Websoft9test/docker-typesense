@@ -14,9 +14,7 @@ services:
       - data-dir=${APP_DATA_PATH}
       - enable-cors=${APP_ENABLE_CORS}
     volumes:
-      - "typesense:/data"
-    depends_on:
-      - mysql
+      - typesense:/data
 
 networks:
   default:
