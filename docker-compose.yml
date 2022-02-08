@@ -12,7 +12,6 @@ services:
     environment:
       - api-key=${APP_NAME}
       - data-dir=${APP_DATA_PATH}
-      - enable-cors=${APP_ENABLE_CORS}
     volumes:
       - typesense:/data
 
