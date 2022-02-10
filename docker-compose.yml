@@ -15,6 +15,14 @@ services:
     volumes:
       - typesense:/data
 
+  docsearch-scraper:
+    image: docsearch-scraper:latest
+    container_name: ${APP_NAME}-scraper
+    environment:
+      - CONFIG=${APP_CONFIG}
+    depends_on:
+     - typesense
+      
 networks:
   default:
     name: ${APP_NAME}
