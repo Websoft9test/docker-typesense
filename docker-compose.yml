@@ -1,5 +1,6 @@
 # image: https://hub.docker.com/r/typesense/typesense/tags
 # docs: https://typesense.org/docs/guide/install-typesense.html
+# https://typesense.org/docs/guide/docsearch.html#add-docsearch-meta-tags-optional
 
 version: "3.8"
 
