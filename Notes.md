@@ -14,4 +14,4 @@
 
 ## typesense-scraper容器
 
-typesense-scraper容器是一个搜集器（爬虫容器），将目标网站的数据搜集到typesenses数据服务器，即上文的typesense容器。它通过IP，端口以及API_KEY等连接下游server服务器;它连接用户网站是通过一个标准格式的json文件，目前我们是采用的https://developer.4d.com为范例，更多文件格式学习请参照[docsearch-configs](https://github.com/algolia/docsearch-configs)
+typesense-scraper容器是一个搜集器（爬虫容器），将目标网站的数据搜集到typesenses数据服务器，即上文的typesense容器。它通过IP，端口以及API_KEY等连接下游server服务器;它连接用户网站是通过一个标准格式的json文件，目前我们是采用的[developer.4d.com](https://developer.4d.com)为范例，更多文件格式学习请参照[docsearch-configs](https://github.com/algolia/docsearch-configs)
