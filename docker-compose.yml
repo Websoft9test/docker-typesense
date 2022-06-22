@@ -1,6 +1,7 @@
 # image: https://hub.docker.com/r/typesense/typesense/tags
 # docs: https://typesense.org/docs/guide/install-typesense.html
 # https://typesense.org/docs/guide/docsearch.html#add-docsearch-meta-tags-optional
+# https://typesense.org/docs/0.23.0/api/server-configuration.html#using-command-line-arguments
 
 version: "3.8"
 
@@ -13,6 +14,7 @@ services:
     environment:
       - TYPESENSE_API_KEY=${APP_KEY}
       - TYPESENSE_DATA_DIR=${APP_DATA_PATH}
+      - TYPESENSE_ENABLE_CORS=true
     volumes:
       - typesense:/data
 
@@ -24,13 +26,38 @@ services:
       - TYPESENSE_HOST=${APP_HOST}
       - TYPESENSE_PORT=${APP_PORT}
       - TYPESENSE_PROTOCOL=${APP_PROTOCOL}
-      - CONFIG={"index_name":"4d","start_urls":["https://developer.4d.com/docs/"],"sitemap_urls":["https://developer.4d.com/docs/sitemap.xml"],"sitemap_alternate_links":true,"stop_urls":[],"selectors":{"lvl0":"header h1","lvl1":"article h2","lvl2":"article h3","lvl3":"article h4","lvl4":"article h5","lvl5":"article h6","text":"article p, article li"},"strip_chars":" .,;:#","custom_settings":{"separatorsToIndex":"_","attributesForFaceting":["language","version"]},"conversation_id":["800622923"],"nb_hits":130834}
+      - CONFIG={
+          "index_name":"websoft9",
+          "start_urls":["https://support.websoft9.com/docs/"],
+          "selectors":{
+            "lvl0":{              
+              "selector":"(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
+              "type":"xpath",
+              "global":true,
+              "default_value":"Documentation"},
+            "lvl1":"header h1",
+            "lvl2":"article h2",
+            "lvl3":"article h3",
+            "lvl4":"article h4",
+            "lvl5":"article h5,article td:first-child",
+            "lvl6":"article h6",
+            "text":"article p, article li, article td:last-child"},
+          "strip_chars":" .,;:#",
+          "custom_settings":{
+            "separatorsToIndex":"_",
+            "attributesForFaceting":["language","version","type","docusaurus_tag"],
+            "attributesToRetrieve":["hierarchy","content","anchor","url","url_without_anchor","type"]},          
+          "conversation_id":["833762294"],
+          "nb_hits":46250}
     depends_on:
       - typesense
-      
+
 networks:
   default:
     name: ${APP_NAME}
+
+volumes:
+  typesense:
 
 volumes:
   typesense:
