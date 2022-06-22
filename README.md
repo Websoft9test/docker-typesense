@@ -53,10 +53,9 @@ If you have not install Docker and Docker-Compose, refer to the following comman
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose  /usr/bin
+sudo systemctl enable docker
 sudo systemctl start docker
+alias docker-compose='docker compose'
 ```
 
 #### Install Typesense
@@ -79,15 +78,10 @@ You should modify ports at [docker-compose file](docker-compose-production.yml) 
 
 ### Usage instructions
 
-You can point your browser to: *`http://Instance's Internet IP:9002`*  
+You can point your browser to: *`http://Instance's Internet IP:port`*  
 
 The following is the information that may be needed during use
 
-#### Services and Ports
-
-| Service | Port | Use |  Necessity |
-| --- | --- | --- | --- |
-| onlyoffice-server | 9002 | Web-GUI database management tool | Y |
 ## Documentation
 
 [Typesense Administrator Guide](https://support.websoft9.com/docs/typesense)
