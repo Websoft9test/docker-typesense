@@ -28,7 +28,7 @@ services:
       - TYPESENSE_PROTOCOL=${APP_PROTOCOL}
       - CONFIG={
           "index_name":"websoft9",
-          "start_urls":["https://support.websoft9.com/docs/"],
+          "start_urls":["https://support.websoft9.com/"],
           "selectors":{
             "lvl0":{              
               "selector":"(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
