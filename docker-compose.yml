@@ -58,6 +58,3 @@ networks:
 
 volumes:
   typesense:
-
-volumes:
-  typesense:
